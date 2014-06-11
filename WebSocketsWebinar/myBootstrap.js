@@ -1,0 +1,1 @@
+﻿httpServer.addWebSocketHandler("/chat", "chatWorker.js", "chat", true);
