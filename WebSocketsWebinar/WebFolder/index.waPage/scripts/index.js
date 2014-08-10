@@ -5,7 +5,13 @@ WAF.onAfterInit = function onAfterInit() {// @lock
 	var sendButton = {};	// @button
 	var changeUsernameButton = {};	// @button
 // @endregion// @endlock
-	var ws = new WebSocket("ws://127.0.0.1:8081/chat");
+	var currSocket=document.URL;
+	var splitPoint=currSocket.indexOf('//');
+	currSocket="ws:" + currSocket.slice(splitPoint) + 'chat';
+	//alert(currSocket);
+	//currSocket="ws://127.0.0.1:8081/chat";
+	//var ws = new WebSocket("ws://127.0.0.1:8081/chat");
+	var ws= new WebSocket(currSocket);
 	var username = "";
 	
 	ws.onmessage = function(message){
